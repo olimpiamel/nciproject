@@ -1,0 +1,43 @@
+<% provide(:title, "Properties") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | Properties</title>
+  </head>
+  <body>
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Title:</strong>
+      <%= @property.title %>
+    </p>
+
+    <p>
+      <strong>User:</strong>
+      <%= @property.user_id %>
+    </p>
+
+    <p>
+      <strong>Price:</strong>
+      <%= @property.price %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= @property.description %>
+    </p>
+
+    <p>
+      <strong>Address:</strong>
+      <%= @property.address %>
+    </p>
+
+    <p>
+      <strong>Status:</strong>
+      <%= @property.status %>
+    </p>
+
+    <%= link_to 'Edit', edit_property_path(@property) %> |
+    <%= link_to 'Back', properties_path, class: "btn btn-sm btn-success" %>
+  </body>
+</html>

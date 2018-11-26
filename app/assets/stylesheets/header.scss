@@ -1,0 +1,24 @@
+.navbar-right{
+  float: right;
+  padding-right: 15px;
+  .singlelink{
+    float: left;
+    text-align: center;
+  }
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #ffff00;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  padding-left: 15px;
+  font-weight: bold;
+  &:hover{
+    color: #00ffbf;
+    text-decoration: none;
+    background-color: inherit;
+}
+}

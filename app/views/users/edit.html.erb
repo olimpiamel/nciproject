@@ -1,0 +1,15 @@
+<% provide(:title, "Users") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | Users</title>
+  </head>
+  <body>
+    <h1>Edit user profile</h1>
+
+    <%= render 'form', user: @user %>
+
+    
+    <%= link_to 'Back', users_path, class: "btn btn-sm btn-success" %>
+  </body>
+</html>

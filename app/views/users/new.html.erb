@@ -1,0 +1,14 @@
+<% provide(:title, "Users") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %></title>
+  </head>
+  <body>
+    <h1>Create your account</h1>
+
+    <%= render 'form', user: @user %>
+
+    
+  </body>
+</html>

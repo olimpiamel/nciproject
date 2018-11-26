@@ -1,0 +1,76 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 50px;
+  padding-bottom: 70px;
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.gravatar_edit {
+  margin-top: 15px;
+}
+/* sidebar */
+aside {
+  section.user_info {
+    margin-top: 20px;
+  }
+  section {
+    padding: 10px 0;
+    margin-top: 20px;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.users_index{
+  ul{
+    padding-right: 10px;
+    padding-left: 20px;
+  }
+  li{
+    overflow: auto;
+    border-bottom: 1px solid #3399ff;
+    padding-left: 20px;
+    padding-right: 10px;
+    :active{
+      background-color: inherit;
+    }
+    :hover{
+      background-color: inherit;
+    }
+  }
+
+}
+
+.form-group{
+  text-align: center;
+}
+
+.actions{
+  text-align: center;
+}
+
+#error_explanation{
+  text-align: center;
+}

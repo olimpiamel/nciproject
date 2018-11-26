@@ -1,0 +1,14 @@
+<% provide(:title, "Properties") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | Properties</title>
+  </head>
+  <body>
+    <h1>New Property</h1>
+
+    <%= render 'form', property: @property %>
+
+    <%= link_to 'Back', properties_path, class: "btn btn-sm btn-success" %>
+  </body>
+</html>

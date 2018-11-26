@@ -1,0 +1,29 @@
+<% provide(:title, "Users") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | Users</title>
+  </head>
+  <body>
+    <p id="notice"><%= notice %></p>
+
+    <h1>Users</h1>
+    <div class="users_index">
+      <ul>
+        <% @users.each do |user| %>
+          <li>
+            <%= gravatar_for user, size: 50 %>
+            <%= link_to user.name, user %>
+            <%= link_to 'Show', user %>
+            <%= link_to 'Edit', edit_user_path(user) %>
+            <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <br>
+
+    
+  </body>
+</html>
