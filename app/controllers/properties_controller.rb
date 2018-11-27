@@ -1,5 +1,6 @@
 class PropertiesController < ApplicationController
-  before_action :set_property, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /properties
   # GET /properties.json
@@ -10,6 +11,7 @@ class PropertiesController < ApplicationController
   # GET /properties/1
   # GET /properties/1.json
   def show
+    @property = Property.find(params[:id])
   end
 
   # GET /properties/new

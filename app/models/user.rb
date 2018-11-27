@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 # Establishes a relationship between users and the properties posted by them
-  has_many :properties
+  has_many :properties, dependent: :destroy
 
   before_save { email.downcase! }
 # All data entered in the sign in for will be a required field to be alloud to create an account, other rules for data control introduced
@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   has_secure_password
   validates :password, presence: true, on: :create, length: {maximum: 15}, allow_nil: true
-  
+
   # Email validation constant to allow only valid emails
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, uniqueness: {case_sensitive: false},

@@ -9,37 +9,17 @@
 
     <h1>Properties</h1>
     <div class="prop_index">
-      <table>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>User</th>
-            <th>Price</th>
-            <th>Description</th>
-            <th>Address</th>
-            <th>Status</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
+      <ul>
 
-        <tbody>
           <% @properties.each do |property| %>
-            <tr>
-              <td id="firstcolumn"><%= property.title %></td>
-              <td><%= property.user_id %></td>
-              <td><%= property.price %></td>
-              <td><%= property.description %></td>
-              <td><%= property.address %></td>
-              <td><%= property.status %></td>
-              <td><%= link_to 'Show', property %>
-                  <%= link_to 'Edit', edit_property_path(property) %>
-                  <%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
+
+              <li><strong>Title: </strong><%= link_to property.title, property %></li>
+              <li><strong>Price: </strong><%= property.price %></li><br />
+
           <% end %>
-        </tbody>
-      </table>
+      </ul>
     </div>
-    <br>
+    <br />
 
     <%= link_to 'New Property', new_property_path, class: "btn btn-sm btn-success" %>
   </body>

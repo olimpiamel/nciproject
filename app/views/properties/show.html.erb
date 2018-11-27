@@ -1,11 +1,12 @@
-<% provide(:title, "Properties") %>
+<% provide(:title, "Property") %>
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield(:title) %> | Properties</title>
+    <title><%= yield(:title) %> |</title>
   </head>
   <body>
     <p id="notice"><%= notice %></p>
+
 
     <p>
       <strong>Title:</strong>
@@ -15,6 +16,7 @@
     <p>
       <strong>User:</strong>
       <%= @property.user_id %>
+
     </p>
 
     <p>
@@ -37,7 +39,8 @@
       <%= @property.status %>
     </p>
 
-    <%= link_to 'Edit', edit_property_path(@property) %> |
-    <%= link_to 'Back', properties_path, class: "btn btn-sm btn-success" %>
+    <%= link_to 'Edit', edit_property_path(@property), class: "btn btn-sm btn-success" %> |
+    <%= link_to 'Back', properties_path, class: "btn btn-sm btn-success" %> |
+    <%= link_to 'Destroy', @property, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-success" %>
   </body>
 </html>

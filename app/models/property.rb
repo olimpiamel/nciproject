@@ -7,5 +7,6 @@ class Property < ApplicationRecord
   validates :description, presence: true
   validates :title, presence: true, length: {maximum: 30}
   validates :price, presence: true, length: {minimum: 1}
+  validates :user_id, presence: true
 
 end

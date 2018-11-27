@@ -68,12 +68,7 @@ class UsersController < ApplicationController
 
   private
 
-    def set_user
-      unless current_user
-      flash[:danger] = "Please log in"
-      redirect_to(login_url)
-      end
-    end
+    
 
     # Confirms the correct user.
     def correct_user
