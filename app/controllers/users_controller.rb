@@ -68,14 +68,6 @@ class UsersController < ApplicationController
 
   private
 
-    
-
-    # Confirms the correct user.
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_url) unless @user == current_user
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :surname, :email, :password, :phone, :address)

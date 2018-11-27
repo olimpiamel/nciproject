@@ -2,16 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .prop_index{
-  th{
+  ul{
     padding-left: 20px;
     padding-right: 10px;
-  }
-  td{
-    padding-left: 10px;
-    padding-right: 10px;
-  //  margin-left: 20px;
-  }
-  #firstcolumn{
-    padding-left: 20px;
-  }
+
+    li{
+      padding-left: 10px;
+      padding-right: 10px;
+
+      :hover {
+          color: #8000ff;
+          background-color: transparent;
+        }
+      }
+    }
+
 }

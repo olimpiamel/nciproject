@@ -7,7 +7,6 @@
   <body>
     <p id="notice"><%= notice %></p>
 
-
     <p>
       <strong>Title:</strong>
       <%= @property.title %>
@@ -38,6 +37,16 @@
       <strong>Status:</strong>
       <%= @property.status %>
     </p>
+
+    <% if @property.images? %>
+
+        <% @property.images.each do |image| %>
+          <%= link_to(image_tag(image.big_thumb.url, alt: 'Image'), image.url, target: '_blank') %>
+        <% end %>
+
+    <% end %>
+
+    <br /><br />
 
     <%= link_to 'Edit', edit_property_path(@property), class: "btn btn-sm btn-success" %> |
     <%= link_to 'Back', properties_path, class: "btn btn-sm btn-success" %> |

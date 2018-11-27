@@ -26,7 +26,9 @@ gem 'jbuilder', '~> 2.5'
  gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+ gem 'mini_magick', '~> 4.8'
+ gem 'carrierwave'
+ gem 'file_validators'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -69,6 +71,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'fog'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

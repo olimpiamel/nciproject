@@ -1,6 +1,6 @@
 class PropertiesController < ApplicationController
   before_action :set_user, only: [:index, :show]
-  before_action :correct_user, only: [:edit, :update, :destroy]
+
 
   # GET /properties
   # GET /properties.json
@@ -21,6 +21,7 @@ class PropertiesController < ApplicationController
 
   # GET /properties/1/edit
   def edit
+    @property = Property.find(params[:id])
   end
 
   # POST /properties
@@ -42,6 +43,7 @@ class PropertiesController < ApplicationController
   # PATCH/PUT /properties/1
   # PATCH/PUT /properties/1.json
   def update
+    set_property
     respond_to do |format|
       if @property.update(property_params)
         format.html { redirect_to @property, notice: 'Property was successfully updated.' }
@@ -71,6 +73,6 @@ class PropertiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def property_params
-      params.require(:property).permit(:title, :user_id, :price, :description, :address, :status)
+      params.require(:property).permit(:title, :user_id, :price, :description, :address, :status, {images: []})
     end
 end
