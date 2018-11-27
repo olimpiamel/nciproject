@@ -14,16 +14,14 @@
           <li>
             <%= gravatar_for user, size: 50 %>
             <%= link_to user.name, user %>
-            <%= link_to 'Show', user %>
+
+            <% if @current_user == User.find_by(id: session[:user_id]) %>
             <%= link_to 'Edit', edit_user_path(user) %>
             <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </li>
+            <% end %>
+          </li> <br />
         <% end %>
       </ul>
     </div>
-
-    <br>
-
-    
   </body>
 </html>
