@@ -28,15 +28,11 @@ class PropertiesController < ApplicationController
   # POST /properties.json
   def create
     @property = Property.new(property_params)
-
-    respond_to do |format|
-      if @property.save
-        format.html { redirect_to @property, notice: 'Property was successfully created.' }
-        format.json { render :show, status: :created, location: @property }
-      else
-        format.html { render :new }
-        format.json { render json: @property.errors, status: :unprocessable_entity }
-      end
+    if @property.save
+      flash[:success] = "Property was successfully created."
+      redirect_to @property
+    else
+      render 'new'
     end
   end
 
@@ -44,25 +40,20 @@ class PropertiesController < ApplicationController
   # PATCH/PUT /properties/1.json
   def update
     set_property
-    respond_to do |format|
-      if @property.update(property_params)
-        format.html { redirect_to @property, notice: 'Property was successfully updated.' }
-        format.json { render :show, status: :ok, location: @property }
-      else
-        format.html { render :edit }
-        format.json { render json: @property.errors, status: :unprocessable_entity }
-      end
+    if @property.update(property_params)
+      redirect_to @property
+    else
+      render 'edit'
     end
   end
 
   # DELETE /properties/1
   # DELETE /properties/1.json
   def destroy
+    @property = Property.find(params[:id])
     @property.destroy
-    respond_to do |format|
-      format.html { redirect_to properties_url, notice: 'Property was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+
+    redirect_to properties_path
   end
 
   private

@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :properties
+  resources :properties do
+    resources :comments
+  end
   resources :users
   resources :sessions
+
 
 root 'static_pages#home'
 

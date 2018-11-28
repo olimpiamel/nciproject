@@ -1,6 +1,7 @@
 class Property < ApplicationRecord
 
   belongs_to :user
+  has_many :comments, dependent: :destroy
 
   validates :address, presence: true, uniqueness: true, length: {in: 10..50}
   validates :description, presence: true

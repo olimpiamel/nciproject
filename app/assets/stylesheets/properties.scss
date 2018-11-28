@@ -2,19 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .prop_index{
-  ul{
-    padding-left: 20px;
-    padding-right: 10px;
+  padding-left: 20px;
+  padding-right: 10px;
+  text-align: center;
 
-    li{
-      padding-left: 10px;
-      padding-right: 10px;
+  .indivprop{
+    border: 2px solid #cccc00;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 4px 5px 0 grey;
 
-      :hover {
-          color: #8000ff;
-          background-color: transparent;
-        }
-      }
-    }
+  }
 
+  :hover {
+    color: #8000ff;
+    background-color: transparent;
+  }
+}
+
+#proptitle{
+  text-align: center;
+  font-weight: bold;
+}
+
+.field{
+  padding: 10px;
 }

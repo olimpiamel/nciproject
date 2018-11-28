@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 # Establishes a relationship between users and the properties posted by them
   has_many :properties, dependent: :destroy
+  has_many :comments, through: :properties
 
   before_save { email.downcase! }
 # All data entered in the sign in for will be a required field to be alloud to create an account, other rules for data control introduced

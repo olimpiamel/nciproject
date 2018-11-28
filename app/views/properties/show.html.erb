@@ -7,10 +7,7 @@
   <body>
     <p id="notice"><%= notice %></p>
 
-    <p>
-      <strong>Title:</strong>
-      <%= @property.title %>
-    </p>
+    <h2 id="proptitle"><%= @property.title %></h2>
 
     <p>
       <strong>User:</strong>
@@ -51,5 +48,15 @@
     <%= link_to 'Edit', edit_property_path(@property), class: "btn btn-sm btn-success" %> |
     <%= link_to 'Back', properties_path, class: "btn btn-sm btn-success" %> |
     <%= link_to 'Destroy', @property, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-success" %>
+
+    <br /><br />
+    <div class="commprop">
+      <h2 class="comtitle">Comments</h2>
+      <%= render @property.comments %>
+    </div>
+    <div class="commprop">
+      <h3 class="comtitle">Add your comment</h3>
+      <%= render 'comments/form' %>
+    </div>
   </body>
 </html>

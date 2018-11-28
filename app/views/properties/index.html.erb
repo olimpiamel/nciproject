@@ -9,15 +9,14 @@
 
     <h1>Properties</h1>
     <div class="prop_index">
-      <ul>
+      <% @properties.each do |property| %>
+        <div class="indivprop">
+          <p<strong>Title: </strong><%= link_to property.title, property %></p>
+          <p><strong>Price: </strong><%= property.price %></p>
+          <p><strong>Id: </strong><%= property.id %></p>
+        </div>
 
-          <% @properties.each do |property| %>
-
-              <li><strong>Title: </strong><%= link_to property.title, property %></li>
-              <li><strong>Price: </strong><%= property.price %></li><br />
-
-          <% end %>
-      </ul>
+      <% end %>
     </div>
     <br />
 
