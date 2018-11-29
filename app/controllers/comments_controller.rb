@@ -6,8 +6,12 @@ class CommentsController < ApplicationController
   def create
     @comment = @property.comments.build(comment_params)
     @comment.user_id = current_user.id
-    flash[:success] = "Your comment has been saved."
-    redirect_to property_path(@property)
+    if @comment.save
+      flash[:success] = "Your comment has been saved."
+      redirect_to property_path(@property, @comment)
+    else
+      flash[:danger] = "The comment has not been saved. Try again later."
+    end
   end
 
   def destroy
