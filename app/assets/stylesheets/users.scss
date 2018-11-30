@@ -50,7 +50,7 @@ aside {
   }
   li{
     overflow: auto;
-    border-bottom: 1px solid #3399ff;
+
     padding-left: 20px;
     padding-right: 10px;
     :active{
@@ -58,6 +58,7 @@ aside {
     }
     :hover{
       background-color: inherit;
+      color: #009900;
     }
   }
 

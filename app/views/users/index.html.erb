@@ -16,8 +16,7 @@
             <%= link_to user.name, user %>
 
             <% if @current_user == User.find_by(id: session[:user_id]) %>
-            <%= link_to 'Edit', edit_user_path(user) %>
-            <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+            
             <% end %>
           </li> <br />
         <% end %>

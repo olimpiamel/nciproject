@@ -8,6 +8,10 @@
     <p id="notice"><%= notice %></p>
 
     <h1>Properties</h1>
+
+    <%= link_to 'Add new property', new_property_path, class: "btn btn-sm btn-success" %>
+    <br /><br />
+
     <div class="prop_index">
       <% @properties.each do |property| %>
         <div class="indivprop">
@@ -18,8 +22,5 @@
 
       <% end %>
     </div>
-    <br />
-
-    <%= link_to 'New Property', new_property_path, class: "btn btn-sm btn-success" %>
   </body>
 </html>
