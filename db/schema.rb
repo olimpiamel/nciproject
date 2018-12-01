@@ -22,26 +22,6 @@ ActiveRecord::Schema.define(version: 2018_11_29_202806) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "conversations", force: :cascade do |t|
-    t.integer "sender"
-    t.integer "receiver"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_conversations_on_user_id"
-  end
-
-  create_table "messages", force: :cascade do |t|
-    t.text "body"
-    t.integer "conversation_id"
-    t.integer "user_id"
-    t.boolean "read", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
   create_table "properties", force: :cascade do |t|
     t.string "title"
     t.integer "user_id"
