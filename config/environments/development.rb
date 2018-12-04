@@ -31,7 +31,23 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :sendmail
+
+#  config.action_mailer.smtp_settings = {
+#    :address => 'x17161657@student.ncirl.ie',
+#    :port => 587,
+#    :domain => 'student.ncirl.ie',
+#    :authentication => :login,
+#    :user_name => 'x17161657@student.ncirl.ie',
+#    :password => '',
+#    :enable_starttls_auto => true
+
+  #  location: '/usr/sbin/sendmail',
+  #  arguments: '-i'
+ #}
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_options = {from: 'x17161657@student.ncirl.ie'}
 
   config.action_mailer.perform_caching = false
 

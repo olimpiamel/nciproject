@@ -1,4 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
-  layout 'mailer'
+  default from: "x17161657@student.ncirl.ie"
+ layout 'mailer'
+ delivery_method = :smtp
 end

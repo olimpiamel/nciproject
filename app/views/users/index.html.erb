@@ -7,7 +7,15 @@
   <body>
     <p id="notice"><%= notice %></p>
 
-    <h1>Users</h1>
+    <div class="container fluid">
+      <div class="row-fluid">
+        <div class="img-responsive">
+          <%= image_tag("inspiration.jpg", alt: "People", :size => "1000x600") %>
+        </div>
+      </div>
+    </div>
+
+    <h1 id="usersheader">USERS</h1>
     <div class="users_index">
       <ul>
         <% @users.each do |user| %>
@@ -15,7 +23,7 @@
             <%= gravatar_for user, size: 50 %>
             <%= link_to user.name, user %>
 
-            
+
           </li> <br />
         <% end %>
       </ul>

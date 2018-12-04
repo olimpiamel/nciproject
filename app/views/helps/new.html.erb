@@ -17,6 +17,9 @@
         <li>Report a fraud</li>
       </ul>
       <p>Please fill out the following form detailing the type of help you require and we will get back to you as soon as possible.</p>
+      <%= form_tag '/helps', method: 'post' do %>
+      format.html{ render(:text => "not implemented")}
+      format.js
       <%= form_tag "/static_pages_controller/help" do %>
       <div class="form-group">
         <p>Issue</p><br />
@@ -29,7 +32,9 @@
       </div>
 
       <div class="actions">
-        <%= submit_tag "Send" %>
+        <%= submit_tag "Send", :value => "submit" %>
+
+        <% end %>
       </div>
 
     </div>

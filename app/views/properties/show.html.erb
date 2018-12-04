@@ -9,52 +9,59 @@
 
     <h2 id="proptitle"><%= @property.title %></h2>
 
-    <p>
-      <strong>User:</strong>
-      <%= @property.user_id %>
+    <div class="row">
+      <div class="col-md-6">
+        <p>
+          <strong>User:</strong>
+          <%= @property.user_id %>
 
-    </p>
+        </p>
 
-    <p>
-      <strong>Price:</strong>
-      <%= @property.price %>
-    </p>
+        <p>
+          <strong>Price:</strong>
+          <%= @property.price %>
+        </p>
 
-    <p>
-      <strong>Description:</strong>
-      <%= @property.description %>
-    </p>
+        <p>
+          <strong>Description:</strong>
+          <%= @property.description %>
+        </p>
 
-    <p>
-      <strong>Address:</strong>
-      <%= @property.address %>
-    </p>
+        <p>
+          <strong>Address:</strong>
+          <%= @property.address %>
+        </p>
 
-    <p>
-      <strong>Status:</strong>
-      <%= @property.status %>
-    </p>
+        <p>
+          <strong>Status:</strong>
+          <%= @property.status %>
+        </p>
+      </div>
 
-    <% if @property.images? %>
+      <div class="col-md-6">
+        <% if @property.images? %>
 
-        <% @property.images.each do |image| %>
-          <%= link_to(image_tag(image.big_thumb.url, alt: 'Image'), image.url, target: '_blank') %>
+            <% @property.images.each do |image| %>
+              <%= link_to(image_tag(image.big_thumb.url, alt: 'Image'), image.url, target: '_blank') %>
+            <% end %>
+
         <% end %>
 
-    <% end %>
+        <br /><br />
+      </div>
 
-    <br /><br />
+      <div id="buttons">
 
-    <% if current_user.id == @property.user_id %>
-    <%= link_to 'Edit', edit_property_path(@property), class: "btn btn-sm btn-success" %> |
-    <%= link_to 'Destroy', @property, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %> |
-    <%= link_to 'Back', properties_path, class: "btn btn-sm btn-success" %>
-    <% else %>
-    <%= link_to 'Back', properties_path, class: "btn btn-sm btn-success" %>
-    <% end %>
+        <% if current_user.id == @property.user_id %>
+        <%= link_to 'Edit', edit_property_path(@property), class: "btn btn-sm btn-success" %> |
+        <%= link_to 'Destroy', @property, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %> |
+        <%= link_to 'Back', properties_path, class: "btn btn-sm btn-success" %>
+        <% else %>
+        <%= link_to 'Back', properties_path, class: "btn btn-sm btn-success" %>
+        <% end %>
+      </div>
 
-
-    <br /><br />
+    </div>
     <div class="commprop">
       <h2 class="comtitle">Comments</h2>
       <%= render @property.comments %>

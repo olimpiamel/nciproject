@@ -1,7 +1,8 @@
 class StaticPagesController < ApplicationController
+  include SessionsHelper
+
   def home
   end
 
-  def help
-  end
+
 end
