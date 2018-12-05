@@ -6,11 +6,11 @@
 
         <% if logged_in? %>
           <li class="singlelink"><%= link_to "Home", current_user %></li>
-          <li class="singlelink"><%= link_to "Help", '/help', helps_path %></li>
+          <li class="singlelink"><%= link_to "Help", users_path %></li>
           <li class="singlelink"><%= link_to "Properties", properties_path %></li>
           <li class="singlelink"><%= link_to "Users", users_path %></li>
           <li class="singlelink"><%= link_to "Profile", current_user %></li>
-          <li class="singlelink"><%= link_to "Mailbox", users_path %></li>
+          <li class="singlelink"><%= link_to "Mailbox", mailbox_inbox_path %></li>
           <li class="singlelink"><%= link_to "Log out", logout_path, method: :delete %></li>
         <% else %>
           <li class="singlelink"><%= link_to "Log in", login_path %></li>

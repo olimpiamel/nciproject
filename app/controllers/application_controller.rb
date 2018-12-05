@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
 
   include SessionsHelper
 
+  include ConversationsHelper
+
+  helper_method :mailbox, :conversation
+
   private
     def set_user
       unless current_user
@@ -14,5 +18,15 @@ class ApplicationController < ActionController::Base
       redirect_to(login_url)
       end
     end
+
+    def mailbox
+      @mailbox = current_user.mailbox
+    end
+
+    def conversation
+      @conversation = mailbox.conversations.find(params[:id])
+    end
+
+
 
 end

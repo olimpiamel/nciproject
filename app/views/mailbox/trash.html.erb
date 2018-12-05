@@ -1,0 +1,10 @@
+<% provide(:title, "Mailbox") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %></title>
+  </head>
+  <body>
+    <%= render 'folder_view', locals: { is_conversation?: false, messages: @trash} %>
+  </body>
+</html>
