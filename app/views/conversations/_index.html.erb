@@ -1,0 +1,13 @@
+<% provide(:title, "Mailbox") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %></title>
+  </head>
+  <body>
+    <h1>All my conversations</h1>
+    <% @conversations.each do |conversation| %>
+      <%= link_to conversation.subject, conversation_path(conversation) %>
+    <% end %>
+  </body>
+</html>

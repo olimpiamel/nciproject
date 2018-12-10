@@ -1,4 +1,10 @@
 class ConversationsController < ApplicationController
+  before_action :set_user, only: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
+
+  def index
+    @conversations = current_user.mailbox.conversations
+  end
 
   def show
     @receipts = conversation.receipts_for(current_user)
@@ -6,6 +12,7 @@ class ConversationsController < ApplicationController
   end
 
   def new
+    @recipients = User.all - [current_user]
   end
 
   def create
@@ -39,6 +46,14 @@ class ConversationsController < ApplicationController
 
   def msg_params
     params.require(:message).permit(:body, :subject)
+  end
+
+  def conversation
+    @conversation = mailbox.conversations.find(params[:id])
+  end
+
+  def is_conversation?
+    conversation.nil?
   end
 
 end

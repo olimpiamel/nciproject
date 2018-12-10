@@ -1,7 +1,7 @@
 <div class="row">
   <div class="spacer"></div>
   <div class="col-md-12">
-    <%= link_to "New message", new_conversation_path, class: "btn btn-success" %>
+    <%= link_to "New message", new_conversation_path, class: "btn btn-success btn-dark" %>
     <div class="spacer"></div><br />
   </div>
 
@@ -16,11 +16,9 @@
   <div class="col-md-8">
     <div class="panel panel-default">
       <div class="panel-body">
-        <% if is_conversation? %>
+
           <%= render 'conversations/form' %>
-        <% else %>
-          <%= render 'conversations/conversation', collection: @messages %>
-        <% end %>
+
       </div>
     </div>
   </div>
