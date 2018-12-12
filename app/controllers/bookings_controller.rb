@@ -1,15 +1,18 @@
 class BookingsController < ApplicationController
+  before_action :set_user, only: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = Booking.all
+    @bookings = current_user.bookings
   end
 
   # GET /bookings/1
   # GET /bookings/1.json
   def show
+    @booking = set_booking
   end
 
   # GET /bookings/new
@@ -25,6 +28,7 @@ class BookingsController < ApplicationController
   # POST /bookings.json
   def create
     @booking = Booking.new(booking_params)
+    @booking.user_id = current_user.id
 
     respond_to do |format|
       if @booking.save
@@ -69,6 +73,6 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params.require(:booking).permit(:id, :start_Date, :end_Date, :property_id, :user_id)
+      params.require(:booking).permit(:start_Date, :end_Date, :property_id)
     end
 end

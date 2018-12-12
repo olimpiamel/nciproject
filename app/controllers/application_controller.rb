@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
 
   include SessionsHelper
 
+  include PropertiesHelper
+
 #  include ConversationsHelper
 
   helper_method :mailbox, :conversation

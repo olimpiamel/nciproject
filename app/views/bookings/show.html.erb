@@ -1,29 +1,38 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, "Bookings") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> |</title>
+  </head>
+  <body>
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Id:</strong>
-  <%= @booking.id %>
-</p>
+    <p>
+      <strong>Id:</strong>
+      <%= @booking.id %>
+    </p>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @booking.start_Date %>
-</p>
+    <p>
+      <strong>Start date:</strong>
+      <%= @booking.start_Date %>
+    </p>
 
-<p>
-  <strong>End date:</strong>
-  <%= @booking.end_Date %>
-</p>
+    <p>
+      <strong>End date:</strong>
+      <%= @booking.end_Date %>
+    </p>
 
-<p>
-  <strong>Property:</strong>
-  <%= @booking.property %>
-</p>
+    <p>
+      <strong>Property:</strong>
+      <%= @booking.property.id %>
+    </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @booking.user %>
-</p>
+    <p>
+      <strong>User:</strong>
+      <%= @booking.user.id %>
+    </p>
 
-<%= link_to 'Edit', edit_booking_path(@booking) %> |
-<%= link_to 'Back', bookings_path %>
+    <%= link_to 'Edit', edit_booking_path(@booking), class: "btn btn-sm btn-success" %> |
+    <%= link_to 'Back', bookings_path, class: "btn btn-sm btn-success" %>
+  </body>
+</html>

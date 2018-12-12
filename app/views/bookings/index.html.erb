@@ -1,35 +1,29 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, "Bookings") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> |</title>
+  </head>
+  <body>
+    <p id="notice"><%= notice %></p>
 
-<h1>Bookings</h1>
+    <h1>Bookings</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Property</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <%= link_to 'New Booking', new_booking_path, class: "btn btn-sm btn-success" %>
 
-  <tbody>
-    <% @bookings.each do |booking| %>
-      <tr>
-        <td><%= booking.id %></td>
-        <td><%= booking.start_Date %></td>
-        <td><%= booking.end_Date %></td>
-        <td><%= booking.property %></td>
-        <td><%= booking.user %></td>
-        <td><%= link_to 'Show', booking %></td>
-        <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
-        <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Booking', new_booking_path %>
+      <ul>
+        <% @bookings.each do |booking| %>
+            <li><strong>Booking ID: </strong><%= booking.id %></li>
+            <li><strong>Start date: </strong><%= booking.start_Date %></li>
+            <li><strong>End date: </strong><%= booking.end_Date %></li>
+            <li><strong>Property ID: </strong><%= booking.property.id %></li>
+            <li><strong>Tenant ID: </strong><%= booking.user.id %></li>
+            <br />
+            <% if current_user.id == booking.user.id %>
+              <%= link_to 'Cancel booking', booking, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+            <% end %>
+        <% end %>
+      </ul>
+  </body>
+</html>

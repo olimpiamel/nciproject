@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :properties, dependent: :destroy
   has_many :comments, through: :properties
   has_many :conversations, :foreign_key => :sender
+  has_many :bookings
 
 
   before_save { email.downcase! }

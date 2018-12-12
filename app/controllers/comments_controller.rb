@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-
+  before_action :set_user, only: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :current_property
 
 
@@ -26,7 +27,5 @@ class CommentsController < ApplicationController
       params.require(:comment).permit(:body)
     end
 
-    def current_property
-      @property = Property.find(params[:property_id])
-    end
+
 end

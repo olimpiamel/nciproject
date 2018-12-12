@@ -1,5 +1,14 @@
-<h1>New Booking</h1>
+<% provide(:title, "New booking") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> |</title>
+  </head>
+  <body>
+    <h1>Book a property</h1>
 
-<%= render 'form', booking: @booking %>
+    <%= render 'form', booking: @booking %>
 
-<%= link_to 'Back', bookings_path %>
+    <%= link_to 'Back', bookings_path, class: "btn btn-sm btn-success" %>
+  </body>
+</html>
