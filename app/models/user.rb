@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-# Establishes a relationship between users and the properties posted by them
+# Establishes a relationship between users and the properties posted by them, the comments written by them and the conversations they hold
   has_many :properties, dependent: :destroy
   has_many :comments, through: :properties
   has_many :conversations, :foreign_key => :sender
@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :surname, presence: true, length: {maximum: 30}
   validates :address, presence: true
   validates :phone, presence: true, length: { in: 5..10 }
-
+  # password validation
   has_secure_password
   validates :password, presence: true, on: :create, length: {maximum: 15}, allow_nil: true
 
@@ -30,6 +30,7 @@ class User < ApplicationRecord
    BCrypt::Password.create(string, cost: cost)
  end
 
+# allows user to be associated with mailboxer gem and the messaging system
  acts_as_messageable
 
  def mailboxer_name

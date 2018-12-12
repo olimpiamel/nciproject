@@ -2,6 +2,7 @@ class ConversationsController < ApplicationController
   before_action :set_user, only: [:index, :show]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
+
   def index
     @conversations = current_user.mailbox.conversations
   end

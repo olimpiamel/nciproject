@@ -2,6 +2,7 @@ class PropertiesController < ApplicationController
   before_action :set_user, only: [:index, :show]
 
 
+
   # GET /properties
   # GET /properties.json
   def index

@@ -82,3 +82,6 @@ gem 'bootstrap-sass'
 
 #for messaging system
 gem 'mailboxer'
+
+# for the booking system
+gem 'simple_calendar'
