@@ -5,6 +5,10 @@ class HelpsController < ApplicationController
     format.xml {render :xml => @help.errors, :status => :unprocessable_entity}
   end
 
+  def show
+    'render help.html.erb'
+  end
+
   def new
     @help = Help.new
   end

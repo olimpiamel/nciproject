@@ -1,3 +1,28 @@
 // Place all the styles related to the Bookings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.booking_index{
+  padding: 10px;
+  text-align: center;
+  .indivbooking{
+    overflow: auto;
+    padding: 10px;
+    margin: 5px;
+    text-align: left;
+    border: 2px solid #990099;
+    border-style: groove;
+
+    #cancel{
+      float: right;
+    }
+
+  }
+
+}
+
+.phrase{
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-decoration-color: #990099;
+
+}

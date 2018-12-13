@@ -5,10 +5,11 @@
     <title><%= yield(:title) %> |</title>
   </head>
   <body>
-    <h1>Book a property</h1>
+    <h1>Book your space!</h1>
 
     <%= render 'form', booking: @booking %>
 
-    <%= link_to 'Back', bookings_path, class: "btn btn-sm btn-success" %>
+    <%= link_to 'Back to my bookings', bookings_path, class: "btn btn-sm btn-success" %>
+    <%= link_to 'Back to properties', properties_path, class: "btn btn-sm btn-success" %>
   </body>
 </html>

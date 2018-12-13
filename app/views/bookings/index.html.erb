@@ -7,23 +7,48 @@
   <body>
     <p id="notice"><%= notice %></p>
 
-    <h1>Bookings</h1>
+    <h1>All my Bookings</h1>
 
-    <%= link_to 'New Booking', new_booking_path, class: "btn btn-sm btn-success" %>
+    <div class="row">
+      <div class="spacer"></div>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <%= link_to 'New Booking', new_booking_path, class: "btn btn-sm btn-success" %><br />
+              <div class="spacer"></div><br />
+              <p class="phrase">Book a property through the above button</p>
+              <p class="phrase">Ensure you know the property ID before you start the booking process</p>
+              <p class="phrase">You can easily find it in the properties index.</p>
+              <p class="phrase">Just press the 'Properties' tab at the top of the page</p>
+            </div>
+          </div>
+        </div>
 
+      <div class="col-md-8">
+        <div class="panel panel-default">
+          <div class="panel-body">
 
-      <ul>
-        <% @bookings.each do |booking| %>
-            <li><strong>Booking ID: </strong><%= booking.id %></li>
-            <li><strong>Start date: </strong><%= booking.start_Date %></li>
-            <li><strong>End date: </strong><%= booking.end_Date %></li>
-            <li><strong>Property ID: </strong><%= booking.property.id %></li>
-            <li><strong>Tenant ID: </strong><%= booking.user.id %></li>
-            <br />
-            <% if current_user.id == booking.user.id %>
-              <%= link_to 'Cancel booking', booking, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
-            <% end %>
-        <% end %>
-      </ul>
+            <div class="booking_index">
+
+                <% @bookings.each do |booking| %>
+                  <div class="indivbooking">
+                    <p><strong>Booking ID: </strong><%= booking.id %></p>
+                    <p><strong>Start date: </strong><%= booking.start_Date %></p>
+                    <p><strong>End date: </strong><%= booking.end_Date %></p>
+                    <p><strong>Property ID: </strong><%= booking.property.id %></p>
+                    <p><strong>Tenant ID: </strong><%= booking.user.id %></p>
+                    <br />
+                    <div id="cancel">
+                      <% if current_user.id == booking.user.id %>
+                        <%= link_to 'Cancel booking', booking, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
   </body>
 </html>

@@ -1,8 +1,8 @@
-<% provide(:title, "Home") %>
+<% provide(:title, "Help") %>
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield(:title) %> | Help</title>
+    <title><%= yield(:title) %> |</title>
   </head>
   <body>
 
@@ -16,21 +16,6 @@
         <li>Report another user</li>
         <li>Report a fraud</li>
       </ul>
-      <p>Please fill out the following form detailing the type of help you require and we will get back to you as soon as possible.</p>
-      <%= form_tag "/static_pages_controller/help" do %>
-      <div class="form-group">
-        <p>Issue</p><br />
-        <%= text_field_tag "issue" %>
-      </div>
-
-      <div class="form-group">
-        <p>Description </p><br />
-        <%= text_area_tag "description", placeholder: "Describe your problem here" %>
-      </div>
-
-      <div class="actions">
-        <%= submit_tag "Send" %>
-      </div>
 
     </div>
   </body>

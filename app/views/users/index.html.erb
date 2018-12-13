@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield(:title) %> | Users</title>
+    <title><%= yield(:title) %> |</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
   <body>
     <p id="notice"><%= notice %></p>
@@ -15,18 +16,27 @@
       </div>
     </div>
 
-    <h1 id="usersheader">USERS</h1>
-    <div class="users_index">
-      <ul>
-        <% @users.each do |user| %>
-          <li>
-            <%= gravatar_for user, size: 50 %>
-            <%= link_to user.name, user %>
+    <h1 id="usersheader">Meet our community</h1>
+    <div class="row">
+      <div class="spacer"></div>
+        <div class="col-md-8">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="users_index">
+                <ul>
+                  <% @users.each do |user| %>
+                    <li>
+                      <%= gravatar_for user, size: 50 %>
+                      <%= link_to user.name, user %>
 
 
-          </li> <br />
-        <% end %>
-      </ul>
-    </div>
+                    </li> <br />
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
   </body>
 </html>
