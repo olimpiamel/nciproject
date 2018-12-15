@@ -1,6 +1,6 @@
 class PropertiesController < ApplicationController
   before_action :set_user, only: [:index, :show]
-
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
 
   # GET /properties

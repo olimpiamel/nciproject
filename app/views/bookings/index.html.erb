@@ -40,7 +40,7 @@
                     <br />
                     <div id="cancel">
                       <% if current_user.id == booking.user.id %>
-                        <%= link_to 'Cancel booking', booking, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
+                        <%= link_to 'Cancel booking', booking, method: :destroy, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %>
                       <% end %>
                     </div>
                   </div>
